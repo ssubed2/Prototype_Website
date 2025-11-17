@@ -1,0 +1,456 @@
+/* --- Basic Setup --- */
+* {
+    /* This makes sizing elements more predictable */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Nav Section */
+/*  center content and set a max width */
+.container {
+    max-width: 1100px;
+    margin: 0 auto; /* Centers the content */
+    padding: 0 20px;
+}
+/* --- top hero image text overlay */
+/* 1. The Container (The Anchor) */
+.hero-item {
+    position: relative; /* Allows the text to sit absolutely inside it */
+    border-radius: 8px;
+    overflow: hidden;   /* Keeps corners rounded */
+    margin-bottom: 20px; /* Adds space before the paragraph below */
+}
+
+/* 2. The Image */
+.hero-img {
+    width: 100%;
+    height: 400px; /* Hero images are usually taller than gallery images */
+}
+
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 3. The Text Overlay (Same style as gallery) */
+.hero-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Dark background for readability */
+    background: rgba(0, 0, 0, 0.6); 
+    
+    color: #fff;
+    padding: 20px;      /* Slightly more padding for a hero title */
+    text-align: center; /* Or 'left' if you prefer */
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.hero-overlay-text h2 {
+    margin: 0;
+    font-size: 32px; /* Larger font for the main title */
+}
+/* --- Image Placeholders --- */
+/* Shared style for all images */
+.placeholder-img {
+    background-color: #e0e0e0;
+    color: #999;
+    font-size: 14px;
+    overflow: hidden; /* This clips any overflow as a fallback */
+    position: relative; /* Establishes a positioning context */
+}
+
+.placeholder-img::after {
+    /* New rules to center the text */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Sits on top of the background, but below the image */
+    z-index: 1;
+}
+
+/* --- Rule for Images Inside Placeholders --- */
+.placeholder-img img {
+    /* This tells the image to fill the container's width and height */
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+    object-position: center; 
+    position: relative;
+    z-index: 2;
+}
+
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left, links right */
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; 
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* --- Header Link Hover Style --- */
+/* Add transition for the logo link */
+header .logo a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Set the hover color for all header links */
+header nav ul li a:hover,
+header .logo a:hover {
+    color: #007bff;
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 20px 0 10px 0;
+}
+.hero-img {
+    height: 300px; /* Height of the main image */
+}
+
+/* --- Section Styling (Shared) --- */
+.trip-planner,
+.top-attraction {
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Spreads cards out */
+    gap: 20px; /* Space between cards */
+    margin-top: 30px;
+}
+
+.card-container .card {
+    width: 32%;
+}
+.card {
+
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  
+    text-align: left;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+/* Simple hover interactivity */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-img {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: #f1f1f1;
+    color: #666;
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.footer-content,
+.footer-legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.footer-legal {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+.footer-logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.footer-links a,
+.footer-social a,
+.legal-links a {
+    text-decoration: none;
+    color: #666;
+    margin-left: 15px;
+}
+
+/* --- Styles for logding pages ---*/
+.btn {
+    display: inline-block;
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #555;
+}
+/* -----Logding Page--------- */
+
+.lodging-page h2 {
+    text-align: center;
+    margin-bottom: 30px  0 0 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.feature-text {
+    flex: 1; /* Take up 50% of space */
+}
+.feature-img {
+    flex: 1; /* Take up 50% of space */
+}
+
+.feature-img .placeholder-img {
+    height: 250px;
+}
+
+/* ---Style for Thigs to do--- */
+.page-content h2 {
+    text-align: center;
+    margin-bottom: 30px  0 0 0;
+}
+
+/* --- Column Layout (Reusable) --- */
+.column-layout {
+    display: flex;
+    gap: 30px;
+}
+.column {
+    flex: 1;
+}
+
+/* --- Activity Card (Reusable) --- */
+.activity-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.activity-card .activity-img {
+    height: 180px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.activity-card h4 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+
+/* ----Transportation page style--- */
+
+.transport-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.transport-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0; 
+}
+
+.transport-icon::after {
+    content: "Icon"; 
+    font-size: 12px;
+}
+
+.transport-text h4 {
+    margin: 0 0 5px 0;
+}
+.transport-text p {
+    margin: 0;
+}
+
+
+
+/* ---FAQ Page Style --- */
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden; 
+}
+
+.faq-question {
+    background-color: #fff;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.faq-icon {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.faq-answer {
+    background-color: #f9f9f9;
+    padding: 0 20px;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+/* --- Active State (Toggled by JS) --- */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Set to height of content */
+    padding: 20px;
+}
+
+
+
+/* --- Top Attraction (Static Text Overlay) --- */
+/* Container styles (Unchanged) */
+.gallery-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    position: relative; 
+    width: 32%;
+    border-radius: 8px;
+    overflow: hidden;   
+}
+
+
+.gallery-item .gallery-img {
+    height: 250px;
+    width: 100%;
+    
+}
+
+
+/* This ensures the image fills the box perfectly without stretching */
+.gallery-item .gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;    
+}
+
+/* --- FIX 3: The Text Overlay --- */
+.gallery-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    
+    
+    z-index: 10; 
+}
+
+.gallery-overlay-text h3 {
+    margin: 0;
+    font-size: 18px;
+}
